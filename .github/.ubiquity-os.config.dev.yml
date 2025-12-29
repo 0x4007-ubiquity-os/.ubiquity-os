@@ -162,10 +162,9 @@ plugins:
         - COLLABORATOR
         - MEMBER
         - OWNER
-  https://daemon-pricing-development.deno.dev:
+  0x4007-ubiquity-os/daemon-pricing@codex/concurrent-20251222:
     with:
       labels:
-        time: *timeLabels
         priority: *priorityLabels
       basePriceMultiplier: 3
       globalConfigUpdate:
