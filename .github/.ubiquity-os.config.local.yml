@@ -157,6 +157,7 @@ plugins:
       globalConfigUpdate:
         excludeRepos: []
       shouldFundContributorClosedIssue: false
+  0x4007-ubiquity-os/daemon-hotfix@codex/concurrent-20251222:
   # ubiquity-os-marketplace/daemon-pull-review@fix/action-entry:
   #   with:
   #     openRouterAiModel: google/gemini-2.5-flash

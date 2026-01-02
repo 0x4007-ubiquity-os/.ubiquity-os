@@ -169,6 +169,8 @@ plugins:
           globalConfigUpdate:
             excludeRepos: []
   - uses:
+      - plugin: 0x4007-ubiquity-os/daemon-hotfix@codex/concurrent-20251222
+  - uses:
       - plugin: ubiquity-os-marketplace/personal-agent-bridge@codex/concurrent-20251222
   - uses:
       - plugin: ubiquity-os-marketplace/text-conversation-rewards@codex/concurrent-20251222
