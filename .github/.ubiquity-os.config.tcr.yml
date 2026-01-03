@@ -1,0 +1,118 @@
+zeroTrue: &zeroTrue
+  score: 0
+  countWords: true
+zeroFalse: &zeroFalse
+  score: 0
+  countWords: false
+oneTrue: &oneTrue
+  score: 1
+  countWords: true
+oneFalse: &oneFalse
+  score: 1
+  countWords: false
+allRoles: &allRoles
+  - collaborator
+  - contributor
+collaboratorOnly: &collaboratorOnly
+  - collaborator
+teamMembersOnly: &teamMembersOnly
+  - COLLABORATOR
+  - OWNER
+  - MEMBER
+  - ADMIN
+timeLabels: &timeLabels
+  - name: "Time: <15 Minutes"
+    collaboratorOnly: false
+  - name: "Time: <1 Hour"
+    collaboratorOnly: false
+  - name: "Time: <2 Hours"
+    collaboratorOnly: false
+  - name: "Time: <4 Hours"
+    collaboratorOnly: false
+  - name: "Time: <1 Day"
+    collaboratorOnly: false
+  - name: "Time: <1 Week"
+    collaboratorOnly: false
+priorityLabels: &priorityLabels
+  - name: "Priority: 0 (Regression)"
+    collaboratorOnly: false
+  - name: "Priority: 1 (Normal)"
+    collaboratorOnly: false
+  - name: "Priority: 2 (Medium)"
+    collaboratorOnly: false
+  - name: "Priority: 3 (High)"
+    collaboratorOnly: false
+  - name: "Priority: 4 (Urgent)"
+    collaboratorOnly: false
+  - name: "Priority: 5 (Emergency)"
+    collaboratorOnly: false
+tcrHtmlConfig: &tcrHtmlConfig
+  a: *oneTrue
+  code: *oneFalse
+  img: *oneFalse
+  h1: *oneTrue
+  h2: *oneTrue
+  h3: *oneTrue
+  h4: *oneTrue
+  h5: *oneTrue
+  h6: *oneTrue
+  br: *zeroTrue
+  p: *zeroTrue
+  em: *zeroTrue
+  ul: *zeroTrue
+  td: *zeroTrue
+  hr: *zeroTrue
+  ol: *zeroTrue
+  pre: *zeroFalse
+  strong: *zeroFalse
+  blockquote: *zeroFalse
+  li:
+    score: 0.1
+    countWords: true
+plugins:
+  ubiquity-os-marketplace/text-conversation-rewards@codex/concurrent-20251222:
+    with:
+      rewards:
+        evmNetworkId: 100
+        evmPrivateEncrypted: "gdo_iiUND1poZaibNme5oUsG1g8RDEmtI41uLgZjxW8WwxnQZb0DHkOBcISuwobxyKEyzeGQC9KzjkWXv0_OCv-kuUHy4myWNIhs4j3odyvh1XUP7pZFeuVEiASmKQBGkzlKRii5dA0liXtHnhciZQi5N8E7-cdOMbA"
+        # erc20RewardToken: "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d"
+      incentives:
+        dataPurge:
+          skipCommentsWhileAssigned: "exact"
+        formattingEvaluator:
+          multipliers:
+            - role:
+                - ISSUE_AUTHOR
+                - PULL_SPECIFICATION
+                - ISSUE_COLLABORATOR
+                - PULL_COLLABORATOR
+              multiplier: 2
+              rewards:
+                wordValue: 0.1
+                html: *tcrHtmlConfig
+            - role:
+                - ISSUE_SPECIFICATION
+              multiplier: 3
+              rewards:
+                wordValue: 0.1
+                html: *tcrHtmlConfig
+            - role:
+                - ISSUE_CONTRIBUTOR
+                - ISSUE_ASSIGNEE
+              multiplier: 1
+              rewards:
+                wordValue: 0.1
+                html: *tcrHtmlConfig
+            - role:
+                - PULL_AUTHOR
+                - PULL_CONTRIBUTOR
+                - PULL_ASSIGNEE
+              multiplier: 0
+              rewards:
+                wordValue: 0
+                html: *tcrHtmlConfig
+        payment:
+          automaticTransferMode: false
+      dataCollection:
+        maxAttempts: 10
+        delayMs: 1000
