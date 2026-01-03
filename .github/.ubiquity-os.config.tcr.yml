@@ -70,7 +70,7 @@ tcrHtmlConfig: &tcrHtmlConfig
     score: 0.1
     countWords: true
 plugins:
-  ubiquity-os-marketplace/text-conversation-rewards@codex/concurrent-20251222:
+  ubiquity-os-marketplace/text-conversation-rewards@feat/ubiquity-ai:
     with:
       rewards:
         evmNetworkId: 100
